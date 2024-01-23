@@ -14,5 +14,20 @@ namespace Lista
         {
             InitializeComponent();
         }
+
+        private void AddBtnClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditBtnClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteBtnClicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

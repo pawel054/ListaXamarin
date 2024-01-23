@@ -9,11 +9,25 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,15,0,0">
-            <Button Text="Dodaj" BackgroundColor="GreenYellow"/>
-            <Button Text="Edytuj" BackgroundColor="CadetBlue" Margin="20,0,20,0"/>
-            <Button Text="Usuń" BackgroundColor="Red"/>
+            <Button Text="Dodaj" BackgroundColor="GreenYellow" Clicked="AddBtnClicked"/>
+            <Button Text="Edytuj" BackgroundColor="CadetBlue" Margin="20,0,20,0" Clicked="EditBtnClicked"/>
+            <Button Text="Usuń" BackgroundColor="Red" Clicked="DeleteBtnClicked"/>
         </StackLayout>
-        <ListView>
+        <ListView x:Name="lista">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Image}" Grid.Column="0"/>
+                            <Label Text="{Binding Title}" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 
