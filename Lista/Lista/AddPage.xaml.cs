@@ -12,8 +12,8 @@ namespace Lista
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddPage : ContentPage
     {
-        List<TaskClass> list;
-        TaskClass model;
+        private List<TaskClass> list;
+        private TaskClass model;
         public AddPage(List<TaskClass> list)
         {
             InitializeComponent();
@@ -34,13 +34,30 @@ namespace Lista
             editButton.IsVisible = true;
         }
 
-        private void AddBtnClicked(object sender, EventArgs e)
+        private async void AddBtnClicked(object sender, EventArgs e)
         {
+            TaskClass task = new TaskClass();
+            task.Id = Guid.NewGuid();
+            task.Title = entryTitle.Text;
+            if (chckImportant.IsChecked)
+                task.Priority = "Ważne";
+            else
+                task.Priority = "";
 
+            list.Add(task);
+            JSON.WriteToFile(list);
+            await Navigation.PopAsync();
         }
-        private void EditBtnClicked(object sender, EventArgs e)
+        private async void EditBtnClicked(object sender, EventArgs e)
         {
+            model.Title = entryTitle.Text;
+            if (chckImportant.IsChecked)
+                model.Priority = "Ważne";
+            else
+                model.Priority = "";
 
+            JSON.WriteToFile(list);
+            await Navigation.PopToRootAsync();
         }
     }
 }
