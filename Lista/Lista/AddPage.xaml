@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lista.AddPage">
+             x:Class="Lista.AddPage"
+             Title="Dodawanie">
     <ContentPage.Content>
-        <StackLayout>
-            
+        <StackLayout Padding="40">
+            <Entry x:Name="entryTitle" Placeholder="Tytuł"/>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="chckImportant"/>
+                <Label Text="Ważny" VerticalOptions="Center"/>
+            </StackLayout>
+            <Button x:Name="addButton" Text="Dodaj" BackgroundColor="GreenYellow" Margin="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

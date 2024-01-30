@@ -13,7 +13,7 @@
             <Button Text="Edytuj" BackgroundColor="CadetBlue" Margin="20,0,20,0" Clicked="EditBtnClicked"/>
             <Button Text="Usuń" BackgroundColor="Red" Clicked="DeleteBtnClicked"/>
         </StackLayout>
-        <ListView x:Name="lista">
+        <ListView x:Name="lista" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
