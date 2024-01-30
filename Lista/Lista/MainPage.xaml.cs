@@ -29,7 +29,10 @@ namespace Lista
 
         private void DeleteBtnClicked(object sender, EventArgs e)
         {
-
+            if (lista.SelectedItem is TaskClass model)
+            {
+                tasks.Remove(model);
+            }
         }
     }
 }
