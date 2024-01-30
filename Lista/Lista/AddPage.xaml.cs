@@ -12,7 +12,7 @@ namespace Lista
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddPage : ContentPage
     {
-        public AddPage()
+        public AddPage(List<TaskClass> list)
         {
             InitializeComponent();
         }

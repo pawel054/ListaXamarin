@@ -10,6 +10,7 @@ namespace Lista
 {
     public partial class MainPage : ContentPage
     {
+        List<TaskClass> tasks = new List<TaskClass>();
         public MainPage()
         {
             InitializeComponent();
@@ -17,7 +18,7 @@ namespace Lista
 
         private void AddBtnClicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new AddPage(tasks));
         }
 
         private void EditBtnClicked(object sender, EventArgs e)
