@@ -30,18 +30,36 @@ namespace Lista
 
         private void EditBtnClicked(object sender, EventArgs e)
         {
-            if (lista.SelectedItem is TaskClass model)
-                Navigation.PushAsync(new AddPage(tasks, model));
+            if(lista.SelectedItem != null)
+            {
+                if (lista.SelectedItem is TaskClass model)
+                    Navigation.PushAsync(new AddPage(tasks, model));
+
+                lista.SelectedItem = null;
+            }
+            else
+            {
+                DisplayAlert("Alert", "Nie wybrano elementu!", "OK");
+            }
         }
 
         private void DeleteBtnClicked(object sender, EventArgs e)
         {
-            if (lista.SelectedItem is TaskClass model)
+            if(lista.SelectedItem != null)
             {
-                tasks.Remove(model);
-                JSON.WriteToFile(tasks);
-                UpdateList();
+                if (lista.SelectedItem is TaskClass model)
+                {
+                    tasks.Remove(model);
+                    JSON.WriteToFile(tasks);
+                    UpdateList();
+                }
+                lista.SelectedItem = null;
             }
+            else
+            {
+                DisplayAlert("Alert", "Nie wybrano elementu!", "OK");
+            }
+
         }
 
         private void UpdateList()
