@@ -23,7 +23,8 @@ namespace Lista
 
         private void EditBtnClicked(object sender, EventArgs e)
         {
-
+            if (lista.SelectedItem is TaskClass model)
+                Navigation.PushAsync(new AddPage(tasks, model));
         }
 
         private void DeleteBtnClicked(object sender, EventArgs e)

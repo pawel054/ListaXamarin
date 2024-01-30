@@ -16,5 +16,10 @@ namespace Lista
         {
             InitializeComponent();
         }
+
+        public AddPage(List<TaskClass> list, TaskClass model)
+        {
+            InitializeComponent();
+        }
     }
 }
