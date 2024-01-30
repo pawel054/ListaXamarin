@@ -11,9 +11,16 @@ namespace Lista
     public partial class MainPage : ContentPage
     {
         List<TaskClass> tasks = new List<TaskClass>();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            UpdateList();
+        }
+
         public MainPage()
         {
             InitializeComponent();
+            UpdateList();
         }
 
         private void AddBtnClicked(object sender, EventArgs e)
@@ -32,7 +39,15 @@ namespace Lista
             if (lista.SelectedItem is TaskClass model)
             {
                 tasks.Remove(model);
+                JSON.WriteToFile(tasks);
+                UpdateList();
             }
+        }
+
+        private void UpdateList()
+        {
+            tasks = JSON.GetFromFile();
+            lista.ItemsSource = tasks;
         }
     }
 }
