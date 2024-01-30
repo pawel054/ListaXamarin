@@ -10,7 +10,8 @@
                 <CheckBox x:Name="chckImportant"/>
                 <Label Text="Ważny" VerticalOptions="Center"/>
             </StackLayout>
-            <Button x:Name="addButton" Text="Dodaj" BackgroundColor="GreenYellow" Margin="20"/>
+            <Button x:Name="addButton" Text="Dodaj" BackgroundColor="GreenYellow" Margin="20" Clicked="AddBtnClicked"/>
+            <Button x:Name="editButton" Text="Edytuj" BackgroundColor="Aqua" Margin="20" IsVisible="False" Clicked="EditBtnClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
